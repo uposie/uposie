@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uposie_ na TikTok</title>
+    <style>
+        /* Reset i podstawowe style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef6f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Nagłówek */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #25F4EE, #000000, #FE2C55);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .tiktok-nick {
+            display: inline-block;
+            background-color: rgba(0,0,0,0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        /* Sekcje */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #25F4EE, #FE2C55);
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #FE2C55;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #ffe0e6;
+            padding-bottom: 8px;
+        }
+        
+        /* Opis */
+        .description p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        /* TikTok link */
+        .tiktok-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #25F4EE, #000000, #FE2C55);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tiktok-link::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+        
+        .tiktok-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .tiktok-link:hover::before {
+            left: 100%;
+        }
+        
+        .tiktok-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Licznik obserwujących */
+        .follower-counter {
+            padding: 15px;
+            background: linear-gradient(to right, #f8f8f8, #ffffff);
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            border: 1px solid #eee;
+            font-weight: bold;
+        }
+        
+        .follower-counter span {
+            color: #FE2C55;
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+        
+        /* Sekcja Q&A */
+        .question {
+            font-weight: bold;
+            color: #000;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question::before {
+            content: "Q:";
+            color: #25F4EE;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .answer {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .answer::before {
+            content: "A:";
+            color: #FE2C55;
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+        }
+        
+        /* Stopka */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Witaj na mojej stronie!</h1>
+            <div class="tiktok-nick">@uposie_</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Opis -->
+        <div class="section description">
+            <h2>O mnie</h2>
+            <p>Cześć! Jestem uposie_ i tworzę treści na TikTok. Moje live to głównie Minecraft, zabawy i coś jeszcze ale nie wiem.</p>
+            <p>Fan !Avorsky!</p>
+        </div>
+        
+        <!-- TikTok sekcja -->
+        <div class="section">
+            <h2>Mój TikTok</h2>
+            <p>Obserwuj mnie na TikTok, aby być na bieżąco z moimi nowymi filmami albo live!</p>
+            <a href="https://www.tiktok.com/@uposie_" class="tiktok-link" target="_blank">
+                <i class="fab fa-tiktok"></i> Obserwuj @uposie_
+            </a>
+            
+            <!-- Licznik obserwujących -->
+            <div class="follower-counter">
+                Obserwujący: <span id="followerCount">10.5K</span>
+            </div>
+        </div>
+        
+        <!-- Pytania i odpowiedzi -->
+        <div class="section">
+            <h2>Najczęstsze pytania</h2>
+            <div class="question">Jak często robisz live?</div>
+            <div class="answer">Nie kiedy robie codziennie ale też nie robie przez np. 1 tyg.</div>
+            
+            <div class="question">Jakiego sprzętu używasz do live?</div>
+            <div class="answer">Nagrywam głównie z laptopa ASUS ExpertBook (16 GB RAM, Intel Core i3)</div>
+            
+            <div class="question">Można współpracować?</div>
+            <div class="answer">Tak, chętnie współpracuję z markami i innymi twórcami. Napisz do mnie na DM na TikTok!</div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            &copy; 2023 uposie_. Wszystkie prawa zastrzeżone.
+        </div>
+    </footer>
+    
+    <script>
+        // Tutaj możesz dodać kod do pobierania rzeczywistej liczby obserwujących
+        // Na potrzeby demonstracji używamy wartości przykładowej
+        setTimeout(() => {
+            document.getElementById('followerCount').textContent = "12.8K";
+            document.getElementById('followerCount').style.color = "#25F4EE";
+        }, 1000);
+        
+        // W rzeczywistości potrzebowałbyś integracji z TikTok API
+        // lub innego źródła danych o obserwujących
+    </script>
+</body>
+</html>
